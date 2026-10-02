@@ -3,4 +3,4 @@ Includes all code and data for "Variation in Aboveground Production and Radiatio
 Scripts: 
 "Field data final.R" code for cleaning and analyzing field data, as well as creating figure 2a. 
 
-"Soilwat transp for RUE 
+"ET for RUE - final.R" code for creating aet and transpiration datasets using previously downloaded transp and AET data found in "data" folder. 
