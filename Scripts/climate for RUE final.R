@@ -18,21 +18,20 @@ canadaclimate<-read.csv("canadaclimate.csv")%>%
          Date="date")%>%
   mutate(Site='SASK')
 
-
-
 RUEclimate<-rbind(prismclimate,canadaclimate)%>%
   mutate(Date = as.Date(Date))%>%
   mutate(DOY = yday(Date))%>%
   mutate(Year=year(Date))%>%
   dplyr::select(-Date)
 
+
+RUEclimate<-RUEclimate%>%
+ mutate(Tmean = ((Tmax_C+Tmin_C)/2))%>%
+ dplyr::select(-Tmin_C, -Tmax_C)
+
 #create xdf dataframe only used in SOILWAT2 
 # xdf<-RUEclimate
-# 
-# RUEclimate<-RUEclimate%>%
-#  mutate(Tmean = ((Tmax_C+Tmin_C)/2))%>%
-#  dplyr::select(-Tmin_C, -Tmax_C)
-# 
+
 # TXclimateRUE<-RUEclimate%>%
 #   dplyr::filter(Site == "TX")
 # NMclimateRUE<-RUEclimate%>%
