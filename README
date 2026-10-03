@@ -4,3 +4,6 @@ Scripts:
 "Field data final.R" code for cleaning and analyzing field data, as well as creating figure 2a. 
 
 "ET for RUE - final.R" code for creating aet and transpiration datasets using previously downloaded transp and AET data found in "data" folder. 
+
+"Sentinel ndvi for rue final" code for creating fapar variable using sentinal NDVI from google earth engine. 
+Also finalizes and creates figures 2 and 3
