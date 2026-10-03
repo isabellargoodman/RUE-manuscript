@@ -1,6 +1,6 @@
 Includes all code and data for "Variation in Aboveground Production and Radiation Use Efficiency Across a C₃–C₄ Grassland Gradient in Central North America " 
 
-#Scripts: 
+# Scripts: 
 "Field data final.R" code for cleaning and analyzing field data, as well as creating figure 2a and 3. 
 
 "ET for RUE - final.R" code for creating aet and transpiration datasets using previously downloaded transp and AET data found in "data" folder. 
@@ -10,3 +10,5 @@ Includes all code and data for "Variation in Aboveground Production and Radiatio
 "PARi for RUE final.R" code for using previously downloaded surface solar radiation downwards to create PARi variables. Also finalizes and creates figures 2 and 4. 
 
 "climate for RUE final.R" all climate related data and calculatons 
+
+
