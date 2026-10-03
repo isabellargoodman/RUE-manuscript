@@ -6,16 +6,16 @@ prismclimate<-read.csv("prismclimate.csv")%>%
          PPT_cm="ppt..mm.",
          Tmin_C="tmin..degrees.C.",
          Tmax_C="tmax..degrees.C."
-         )%>%
+  )%>%
   mutate(PPT_cm = PPT_cm*0.1) 
 
 canadaclimate<-read.csv("canadaclimate.csv")%>%
   dplyr::select(date,ppt_mm,tmax_c,tmin_c)%>%
   mutate(ppt_mm = ppt_mm*0.1)%>%
   rename(PPT_cm ="ppt_mm",
-        Tmin_C="tmin_c",
-        Tmax_C ="tmax_c",
-        Date="date")%>%
+         Tmin_C="tmin_c",
+         Tmax_C ="tmax_c",
+         Date="date")%>%
   mutate(Site='SASK')
 
 
@@ -26,81 +26,72 @@ RUEclimate<-rbind(prismclimate,canadaclimate)%>%
   mutate(Year=year(Date))%>%
   dplyr::select(-Date)
 
-#creat e
-xdf<-RUEclimate
+#create xdf dataframe only used in SOILWAT2 
+# xdf<-RUEclimate
+# 
+# RUEclimate<-RUEclimate%>%
+#  mutate(Tmean = ((Tmax_C+Tmin_C)/2))%>%
+#  dplyr::select(-Tmin_C, -Tmax_C)
+# 
+# TXclimateRUE<-RUEclimate%>%
+#   dplyr::filter(Site == "TX")
+# NMclimateRUE<-RUEclimate%>%
+#   dplyr::filter(Site == "NM")
+# SCOLOclimateRUE<-RUEclimate%>%
+#   dplyr::filter(Site == "SCOLO")
+# NCOLOclimateRUE<-RUEclimate%>%
+#   dplyr::filter(Site == "NCOLO")
+# WYclimateRUE<-RUEclimate%>%
+#   dplyr::filter(Site == "WY") 
+# MTclimateRUE<-RUEclimate%>%
+#   dplyr::filter(Site == "MT")
+# SASKclimateRUE<-RUEclimate%>%
+#   dplyr::filter(Site == "SASK")
 
-  RUEclimate<-RUEclimate%>%
-   mutate(Tmean = ((Tmax_C+Tmin_C)/2))%>%
-   dplyr::select(-Tmin_C, -Tmax_C)
-
-  TXclimateRUE<-RUEclimate%>%
-    dplyr::filter(Site == "TX")
-  NMclimateRUE<-RUEclimate%>%
-    dplyr::filter(Site == "NM")
-  SCOLOclimateRUE<-RUEclimate%>%
-    dplyr::filter(Site == "SCOLO")
-  NCOLOclimateRUE<-RUEclimate%>%
-    dplyr::filter(Site == "NCOLO")
-  WYclimateRUE<-RUEclimate%>%
-    dplyr::filter(Site == "WY")
-  MTclimateRUE<-RUEclimate%>%
-    dplyr::filter(Site == "MT")
-  SASKclimateRUE<-RUEclimate%>%
-    dplyr::filter(Site == "SASK")
-
-RUEclimate<-RUEclimate[,c("Year","DOY","Tmax_C","Tmin_C","PPT_cm","Site")]
-
-
-xdf_tx<-RUEclimate%>%
-  dplyr::filter(Site=="TX")%>%
-  dplyr::select(-Site)%>%
-  mutate(DOY = as.integer(DOY))
-
-xdf_nm<-RUEclimate%>%
-  dplyr::filter(Site=="NM")%>%
-  dplyr::select(-Site)%>%
-  mutate(DOY = as.integer(DOY))
-
-xdf_scolo<-RUEclimate%>%
-  dplyr::filter(Site=="SCOLO")%>%
-  dplyr::select(-Site)%>%
-  mutate(DOY = as.integer(DOY))
-
-xdf_ncolo<-RUEclimate%>%
-  dplyr::filter(Site=="NCOLO")%>%
-  dplyr::select(-Site)%>%
-  mutate(DOY = as.integer(DOY))
-
-xdf_wy<-RUEclimate%>%
-  dplyr::filter(Site=="WY")%>%
-  dplyr::select(-Site)%>%
-  mutate(DOY = as.integer(DOY))
-
-xdf_mt<-RUEclimate%>%
-  dplyr::filter(Site=="MT")%>%
-  dplyr::select(-Site)%>%
-  mutate(DOY = as.integer(DOY))
-
-xdf_nm<-RUEclimate%>%
-  dplyr::filter(Site=="NM")%>%
-  dplyr::select(-Site)%>%
-  mutate(DOY = as.integer(DOY))
-
-xdf_sask<-RUEclimate%>%
-  dplyr::filter(Site=="SASK")%>%
-  dplyr::select(-Site)%>%
-  mutate(DOY = as.integer(DOY))
-
-Year<-c(2025)
-DOY<-c(365)
-Tmax_C<-(-1.38652649)
-Tmin_C<-(-5.2737335)
-PPT_cm<-(1.136065e-03)
-
-df<-data.frame(Year,DOY,Tmax_C,Tmin_C,PPT_cm)
-
-xdf_sask<-xdf_sask<-rbind(xdf_sask,df)
-
+# RUEclimate<-RUEclimate[,c("Year","DOY","Tmax_C","Tmin_C","PPT_cm","Site")]
+# 
+# xdf_tx<-RUEclimate%>%
+#   dplyr::filter(Site=="TX")%>%
+#   dplyr::select(-Site)%>%
+#   mutate(DOY = as.integer(DOY))
+# xdf_nm<-RUEclimate%>%
+#   dplyr::filter(Site=="NM")%>%
+#   dplyr::select(-Site)%>%
+#   mutate(DOY = as.integer(DOY))
+# xdf_scolo<-RUEclimate%>%
+#   dplyr::filter(Site=="SCOLO")%>%
+#   dplyr::select(-Site)%>%
+#   mutate(DOY = as.integer(DOY))
+# xdf_ncolo<-RUEclimate%>%
+#   dplyr::filter(Site=="NCOLO")%>%
+#   dplyr::select(-Site)%>%
+#   mutate(DOY = as.integer(DOY))
+# xdf_wy<-RUEclimate%>%
+#   dplyr::filter(Site=="WY")%>%
+#   dplyr::select(-Site)%>%
+#   mutate(DOY = as.integer(DOY))
+# xdf_mt<-RUEclimate%>%
+#   dplyr::filter(Site=="MT")%>%
+#   dplyr::select(-Site)%>%
+#   mutate(DOY = as.integer(DOY))
+# xdf_nm<-RUEclimate%>%
+#   dplyr::filter(Site=="NM")%>%
+#   dplyr::select(-Site)%>%
+#   mutate(DOY = as.integer(DOY))
+# xdf_sask<-RUEclimate%>%
+#   dplyr::filter(Site=="SASK")%>%
+#   dplyr::select(-Site)%>%
+#   mutate(DOY = as.integer(DOY))
+# 
+# #add last day to saskatchewan
+# Year<-c(2025)
+# DOY<-c(365)
+# Tmax_C<-(-1.38652649)
+# Tmin_C<-(-5.2737335)
+# PPT_cm<-(1.136065e-03)
+# 
+# df<-data.frame(Year,DOY,Tmax_C,Tmin_C,PPT_cm)
+# xdf_sask<-xdf_sask<-rbind(xdf_sask,df)
 
 #longterm climate 
 library(lubridate)
@@ -134,5 +125,7 @@ mean_climate<-mean_climate%>%
   group_by(Site)%>%
   summarise_at(vars(MAP,MAT),
                list(mean))
-  
+
+
+
   
