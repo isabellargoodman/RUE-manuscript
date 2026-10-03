@@ -195,7 +195,6 @@ model<-lm(rue~C3percent, data=allrueQuad)
 summary(model)
 
 
-
 lmermodel<-lmer(rue~C3percent + (1|Site),data=allrueQuad)
  summary(lmermodel)
  Anova(lmermodel, type = "II")
