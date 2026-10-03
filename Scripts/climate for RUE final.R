@@ -24,28 +24,29 @@ RUEclimate<-rbind(prismclimate,canadaclimate)%>%
   mutate(Year=year(Date))%>%
   dplyr::select(-Date)
 
-
+#Dont run if making xdf 
 RUEclimate<-RUEclimate%>%
  mutate(Tmean = ((Tmax_C+Tmin_C)/2))%>%
  dplyr::select(-Tmin_C, -Tmax_C)
 
+
+TXclimateRUE<-RUEclimate%>%
+  dplyr::filter(Site == "TX")
+NMclimateRUE<-RUEclimate%>%
+  dplyr::filter(Site == "NM")
+SCOLOclimateRUE<-RUEclimate%>%
+  dplyr::filter(Site == "SCOLO")
+NCOLOclimateRUE<-RUEclimate%>%
+  dplyr::filter(Site == "NCOLO")
+WYclimateRUE<-RUEclimate%>%
+  dplyr::filter(Site == "WY")
+MTclimateRUE<-RUEclimate%>%
+  dplyr::filter(Site == "MT")
+SASKclimateRUE<-RUEclimate%>%
+  dplyr::filter(Site == "SASK")
+
 #create xdf dataframe only used in SOILWAT2 
 # xdf<-RUEclimate
-
-# TXclimateRUE<-RUEclimate%>%
-#   dplyr::filter(Site == "TX")
-# NMclimateRUE<-RUEclimate%>%
-#   dplyr::filter(Site == "NM")
-# SCOLOclimateRUE<-RUEclimate%>%
-#   dplyr::filter(Site == "SCOLO")
-# NCOLOclimateRUE<-RUEclimate%>%
-#   dplyr::filter(Site == "NCOLO")
-# WYclimateRUE<-RUEclimate%>%
-#   dplyr::filter(Site == "WY") 
-# MTclimateRUE<-RUEclimate%>%
-#   dplyr::filter(Site == "MT")
-# SASKclimateRUE<-RUEclimate%>%
-#   dplyr::filter(Site == "SASK")
 
 # RUEclimate<-RUEclimate[,c("Year","DOY","Tmax_C","Tmin_C","PPT_cm","Site")]
 # 
