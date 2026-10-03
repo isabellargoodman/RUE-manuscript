@@ -5,8 +5,8 @@ Scripts:
 
 "ET for RUE - final.R" code for creating aet and transpiration datasets using previously downloaded transp and AET data found in "data" folder. 
 
-"Sentinel ndvi for rue final" code for creating fapar variable using sentinal NDVI from google earth engine. 
+"Sentinel ndvi for rue final.R" code for creating fapar variable using sentinal NDVI from google earth engine. 
 
+"PARi for RUE final.R" code for using previously downloaded surface solar radiation downwards to create PARi variables. Also finalizes and creates figures 2 and 3. 
 
-"PARi for RUE final" code for using previously downloaded surface solar radiation downwards to create PARi variables. Also finalizes and creates figures 2 and 3. 
-
+"climate for RUE.R" all climate related data and calculatons 
