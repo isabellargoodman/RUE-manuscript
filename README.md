@@ -11,5 +11,7 @@ Includes all code and data for "Variation in Aboveground Production and Radiatio
 
 "climate for RUE final.R" all climate related data and calculatons 
 
+"explanatory variables for RUE final.R" creates all explanatory variables, runs statistical analyses and creates figures 5,6. 
+
 # Data: 
 All data files can found in the 'data' folder. Much of the data is derived from SOILWAT2 soil water model or processed and downloaded in google earth engine. All is available on request. 
